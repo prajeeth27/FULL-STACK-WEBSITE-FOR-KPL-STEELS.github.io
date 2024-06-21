@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<title>KPL Steel Pvt Ltd</title>
+</head>
+<style>
+    section:hover {
+            border: 2px solid rgba(255, 221, 0, 0.5); /* RGBA border color */
+            box-shadow: 0 0 20px rgba(255, 221, 0, 0.8); /* RGBA shadow effect */
+        }
+    
+    /* Style the press-releases section */
+#press-releases {
+    text-align: center;
+    padding: 20px;
+}
+.social-icons{
+    margin-top: 8rem;
+    display: flex;
+    justify-content: space-between;
+    width:220px;
+    height:40px;
+}
+.social-icons a{
+    display:inline-flex;
+    width:50px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-color);
+    color: var(--hover-color);
+    border:2px solid var(--hover-color);
+    box-shadow: 0 0 0.3rem #12f7ff;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+.social-icons a i{
+    font-size: 1.5rem;
+}
+.social-icons a:hover{
+    color: var(--bg-color);
+}
+.social-icons a::before{
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    background: var(--hover-color);
+    width:100;
+    height: 100%;
+    z-index: -1;
+    transition: .4s;
+
+}
+
+.social-icons a:hover::before{
+    width:100%;
+}
+
+/* Style the press-release container */
+.press-release {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+     justify-content: space-around; /* Adjust as needed */
+     text-align: center; /* Center-align items */
+    margin: 10px;
+
+}
+
+/* Style the press-release image */
+.press-release img {
+    width: 500px; /* Set the desired width for the image */
+    height: auto; /* Automatically adjust the height based on the width */
+    border: 2px solid #ddd; /* Add a border to the image */
+    border-radius: 8px; /* Apply border-radius for rounded corners */
+    transition: transform 0.3s ease-in-out; /* Add a hover transition */
+    cursor: pointer;
+}
+.contact-details{
+    color: #040368;
+}
+
+/* Change the scale of the image on hover */
+.press-release img:hover {
+    transform: scale(1.1);
+}
+
+/* Style the press-release heading */
+.press-release b {
+    margin-top: 10px;
+    color: #333;
+}
+
+/* Style the press-release source */
+.press-release h {
+    margin-top: 5px;
+    color: #666;
+}
+
+    /* Style the products section */
+    .product-gallery {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-around; /* Distribute space around items */
+    align-items: center; /* Align items vertically */
+}
+.product-item:hover .product-image {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+.product-gallery {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .product-item {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .product-image {
+            width: 200px;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .product-image:hover {
+            transform: scale(1.1);
+        }
+
+        .product-details {
+            display: none;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 10px;
+            color:black
+        }
+
+        .product-details.show {
+            display: block;
+        }
+
+
+.product-item {
+    text-align: center; /* Center-align items */
+    margin: 10px; /* Add some spacing between items */
+}
+
+.product-item img {
+    width: 300px; /* Set a fixed width for the images */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.product-buttons {
+    margin-top: 10px; /* Add some space between image and buttons */
+}
+section{
+    text-align: center;
+    padding: 20px;
+    position: relative; /* Add relative positioning for absolute positioning of the RGBA box */
+}
+
+
+
+
+
+body.visual-impaired section {
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+body.visual-impaired section:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(5, 5, 5); /* Semi-transparent white background */
+    border-radius: 8px;
+    z-index: -1;
+    box-shadow: 0 0 20px gold;
+}
+
+
+/* Style the founder's name */
+#founder b {
+    font-size: 1.5em;
+    color: #333;
+}
+#founder img {
+    border-radius: 50%; /* Rounded border for the image */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add a shadow effect */
+    transition: transform 0.3s ease-in-out; /* Add a hover transition */
+}
+
+#founder img:hover {
+    transform: scale(1.1); /* Enlarge the image on hover */
+}
+
+
+/* Style the paragraph below the founder's name */
+#founder p {
+    color: #666; /* Change text color for better visibility */
+    margin: 10px 0;
+}
+
+/* Style the table as a link */
+#founder-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        #founder-table th, 
+        #founder-table td {
+            border: 1px solid #173deb;
+            padding: 8px;
+            text-align: left;
+            color:rgb(245, 242, 242);
+        }
+
+        #founder-table th {
+            background-color: #094cc9;
+        }
+
+
+    body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+}
+header {
+        background: linear-gradient(to right, #b3ecff, #004080); /* Gradient background from ice blue to dark blue */
+        color: #fff; /* Text color */
+        padding: 1em;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 2px solid transparent; /* Add a transparent border */
+        border-radius: 10px; /* Apply border-radius for rounded corners */
+        transition: border-color 0.3s ease; /* Add a transition effect on border color change */
+        box-shadow: 0 0 10px rgba(0, 64, 128, 0.5); /* Add a shadow effect */
+    }
+
+
+header:hover {
+    border-color: rgba(255, 221, 0, 0.5); /* Change border color on hover */
+    box-shadow: 0 0 20px rgba(255, 221, 0, 0.8); /* Add a glow effect on hover */
+}
+
+.logo img {
+    width: 100px;
+}
+
+
+
+nav {
+    background-color: rgba(0, 64, 128, 0.8); /* Add a transparent blue background */
+    padding: 1em;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid transparent; /* Add a transparent border */
+    border-radius: 10px; /* Apply border-radius for rounded corners */
+    transition: border-color 0.3s ease; /* Add a transition effect on border color change */
+    box-shadow: 0 0 10px rgba(0, 64, 128, 0.5); /* Add a shadow effect */
+}
+
+nav:hover {
+    border-color: rgba(255, 221, 0, 0.5); /* Change border color on hover */
+    box-shadow: 0 0 20px rgba(255, 221, 0, 0.8); /* Add a glow effect on hover */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav li {
+    margin: 0 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+    padding: 5px 10px;
+}
+
+nav a:hover {
+    color: #ffd100; /* Yellow on hover */
+}
+#jobList{
+    color: #000108;
+}
+
+
+main {
+    padding: 2em;
+}
+
+section {
+    margin-bottom: 2em;
+}
+
+h2 {
+    color: #004080; /* Deep blue */
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5em;
+    color: #004080;
+}
+
+input {
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #004080;
+    color: #fff;
+    padding: 0.5em 1em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #00214d; /* Darker blue on hover */
+}
+
+footer {
+        background: linear-gradient(to right, #b3ecff, #004080); /* Gradient background from ice blue to dark blue */
+        color: #fff; /* Text color */
+        padding: 1em;
+        text-align: center;
+        position:relative;
+        bottom: 0;
+        width: 100%;
+        border: 2px solid transparent; /* Add a transparent border */
+        border-radius: 10px; /* Apply border-radius for rounded corners */
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Add a shadow effect */
+    }
+.dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            z-index: 1;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .comment-section {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+
+        .comment-form textarea {
+            width: 100%;
+            padding: 0.5em;
+            margin-bottom: 1em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .circle-rating {
+            display: flex;
+            justify-content: center;
+        }
+
+        .circle-rating input[type="radio"] {
+            display: none;
+        }
+
+        .circle-rating label {
+            width: 40px;
+            height: 40px;
+            border-radius: 10%;
+            background-color: #000108;
+            margin: 0 5px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .circle-rating label:hover,
+        .circle-rating input[type="radio"]:checked ~ label {
+            background-color: gold;
+        }
+        
+        /* Add styles for the reactive background */
+        h2 {
+    font-family:'Times New Roman', Times, serif;
+    color: #004080; /* Deep blue */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+h2:hover {
+    text-shadow: 0 0 5px #ffd100; /* Add glow effect on hover */
+    transition: text-shadow 0.3s ease; /* Add transition for text-shadow */
+}
+
+
+
+    
+
+.glitter {
+        position: fixed;
+        width: 2px;
+        height: 2px;
+        background-color: #ffffff;
+        opacity: 0.8;
+        pointer-events: none;
+        z-index: 9999;
+        animation:none;
+    }
+
+    @keyframes glitter-fall {
+        from {
+            transform: translateY(-10vh) rotate(0deg);
+        }
+        to {
+            transform: translateY(100vh) rotate(360deg);
+        }
+    }
+    body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(250, 248, 248); /* Change the background color to black */
+    color: #fff; /* Set text color to white for better visibility */
+}
+
+.settings-button {
+            position: fixed;
+            top: 30px;
+            bottom: 60px;
+            right: 0px;
+            z-index: 9999;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            width: 60px; /* Adjust the width and height */
+            height: 60px; /* Adjust the width and height */
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .settings-button img {
+            width: 200%; /* Adjust the size of the icon */
+            height: auto;
+        }
+
+        .settings-menu {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            z-index: 9999;
+            background-color: rgba(247, 8, 8, 0.8);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            display: none;
+        }
+
+        .settings-menu button {
+            display: block;
+            margin-bottom: 10px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            outline: none;
+        }
+        .mouse-trail {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            width: 10px; /* Adjust the width of the trail */
+            height: 10px; /* Adjust the height of the trail */
+            background-color: rgba(255, 0, 0, 0.5); /* Adjust the color and opacity of the trail */
+            border-radius: 50%;
+            transition: transform 0.3s ease-out;
+        }
+        marquee {
+    font-weight: bold;
+    color: #004080; /* Deep blue */
+}
+.message {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    color: #004080; /* Deep blue */
+    text-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea, 0 0 30px #00ffea, 0 0 40px #00ffea, 0 0 70px #00ffea, 0 0 80px #00ffea, 0 0 100px #00ffea, 0 0 150px #00ffea;
+}
+.shortcut-column {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 30px; /* Adjust the width as needed */
+    background-color: rgba(255, 255, 255, 0.2); /* Adjust the background color and transparency */
+    z-index: 999; /* Ensure it's above other content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.shortcut-item {
+    margin-bottom: 10px; /* Adjust spacing between items */
+    color: #333; /* Adjust icon color */
+    font-size: 24px; /* Adjust icon size */
+    text-decoration: none;
+}
+
+.shortcut-item:hover {
+    color: #ffd100; /* Adjust hover color */
+}
+/* Define keyframes for scrolling animation */
+#submit-review {
+        display: flex; /* Use flexbox for layout */
+        flex-direction: column; /* Arrange items vertically */
+        align-items: center; /* Center-align items horizontally */
+        margin-top: 50px; /* Add margin space from the top */
+    }
+
+    #reviewText {
+        width: 80%; /* Set the width of the textarea */
+        height: 150px; /* Set the height of the textarea */
+        margin-bottom: 20px; /* Add margin space below the textarea */
+        padding: 10px; /* Add padding to the textarea */
+        border: 1px solid #ccc; /* Add border to the textarea */
+        border-radius: 5px; /* Add border radius to the textarea */
+        resize: none; /* Disable textarea resizing */
+    }
+
+    button[type="submit"] {
+        background-color: #004080; /* Deep blue background color */
+        color: #fff; /* White text color */
+        padding: 10px 20px; /* Add padding to the button */
+        border: none; /* Remove button border */
+        border-radius: 5px; /* Add border radius to the button */
+        cursor: pointer; /* Change cursor to pointer on hover */
+        transition: background-color 0.3s ease; /* Add transition effect */
+    }
+
+    button[type="submit"]:hover {
+        background-color: #00214d; /* Darker blue background color on hover */
+    }
+     /* Add styles for the popup container */
+     .popup {
+        display: none; /* Hide popup by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        z-index: 9999;
+        overflow: auto;
+    }
+
+    .popup-content {
+        background-color: #fefefe; /* Popup background color */
+        margin: 15% auto; /* Center the popup vertically and horizontally */
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 80%;
+    }
+
+    .close {
+        color: #000; /* Close button color */
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000; /* Hover color */
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .job-list {
+        color: #000; /* Text color */
+    }
+</style>
+<body>
+    
+      <div class="glitter-container"></div>
+    <div class="shortcut-column">
+        <a href="#" class="shortcut-item"><i class="bx bx-user"></i></a>
+        <a href="#" class="shortcut-item"><i class="bx bx-message"></i></a>
+        <a href="calendar.html" class="shortcut-item"><i class="bx bx-calendar"></i></a>
+        <!-- Add more shortcut items as needed -->
+    </div>
+    <header>
+        
+        <div class="logo">
+            <img src="logo.jpg" alt="Company Logo">
+        </div>
+        <button class="settings-button" onclick="toggleSettingsMenu()">
+            <img src="settings2.jpg" alt="Settings">
+        </button>
+    
+        <!-- Settings Menu -->
+        <div class="settings-menu" id="settingsMenu">
+            <button onclick="toggleAudioImpairment()">Audio Impairment: <span id="audioStatus">Off</span></button>
+            <button onclick="toggleVisualImpairment()">Visual Impairment: <span id="visualStatus">Off</span></button>
+            <button onclick="toggleMouseTrail()">Mouse Trail: <span id="mouseTrailStatus">Off</span></button>
+            <button onclick="toggleTextToSpeech()">Text-to-Speech: <span id="textToSpeechStatus">Off</span></button>
+        </div>
+        
+        <div class="mouse-trail" id="mouseTrail1"></div>
+        <div class="mouse-trail" id="mouseTrail2"></div>
+        <div class="mouse-trail" id="mouseTrail3"></div>
+    
+        
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">About Us</a>
+                    <div class="dropdown-content">
+                        <a href="company_profile.html" target="_blank">Company Profile</a>
+
+                        <a href="vission_mission.html" target="_blank">Vision & Mission</a>
+                        <a href="management.html" target="_blank">Management Team</a>
+                    </div>
+                </li>
+                
+                <li><a href="#founder">Founder</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#press-releases">Press Releases</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+      
+    <main>
+       
+       
+        <section id="founder">
+            <h2>Founder Details</h2>
+            <img src="https://i.ibb.co/pd8Kx2t/founder.jpg"  width="125" height="200">
+            <b><p>VINODHKUMAR SUBRAMANIAN</p></b>
+            <p>Vinodhkumar Sivasubramaniam is registered with Ministry of Corporate Affairs (MCA). Their DIN is 01951146. Following are their current and past directorships.</p>
+            <button id="toggle-table">More-Info</button> <!-- Button to toggle table visibility -->
+            <table id="founder-table" style="display: none;"> <!-- Hidden table -->
+                <tr>
+                    <th>Company</th>
+                    <th>Designation</th>
+                    <th>Original Date Of Appointment</th>
+                </tr>
+                <tr>
+                    <td>KPL STEEL PRIVATE LIMITED</td>
+                    <td>Director</td>
+                    <td>22 April 2010</td>
+                </tr>
+                <tr>
+                    <td>NAVIN STEEL WIRES CHENNAI PRIVATELIMITED</td>
+                    <td>Director</td>
+                    <td>07 February 2008</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="import-export">
+            <h2>Import/Export Details</h2>
+            <button onclick="displayImportExportGraph()">Display Import/Export Graph</button>
+            <div id="importExportGraphModal"></div> <!-- Display import/export graph here -->
+        </section>
+        
+
+
+        <section id="products">
+            <h2>Products</h2>
+            <!-- Add images of steel products -->
+            <div class="product-gallery">
+                <div class="product-item">
+                    <img src="steel1.jpg" alt="Steel Product 1" class="product-image">
+                    <div class="product-buttons">
+                        <button class="show-details-btn">View Details</button>
+                        <div class="product-details">
+                            <h3>Galvanized Iron</h3>
+                            <p>At KPL Steels, we pride ourselves on producing high-quality galvanized iron that meets the needs of various industries. Our galvanized iron is meticulously crafted to withstand corrosion and rust, making it ideal for outdoor applications, construction projects, and manufacturing processes.</p>
+                            <p>With our state-of-the-art facilities and experienced team, we ensure that every batch of galvanized iron meets the highest standards of quality and durability. Whether you're building infrastructure, fabricating machinery, or creating architectural designs, you can trust KPL Steels for reliable and long-lasting galvanized iron.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="steel2.jpg" alt="Steel Product 2" class="product-image">
+                    <div class="product-buttons">
+                        <button class="show-details-btn">View Details</button>
+                        <div class="product-details">
+                            <h3>Stainless Steel</h3>
+        <p>Discover the excellence of stainless steel from KPL Steels. Our stainless steel products are crafted with precision and expertise to deliver unparalleled performance and durability. From kitchen appliances to industrial machinery, our stainless steel is trusted by professionals around the world.</p>
+        <p>With KPL Steels, you can expect superior corrosion resistance, exceptional strength, and a sleek aesthetic that enhances any project. Whether you're designing modern structures, manufacturing medical equipment, or creating automotive components, our stainless steel delivers unmatched quality and reliability.</p>
+                          </div>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="steel3.png" alt="Steel Product 3" class="product-image">
+                    <div class="product-buttons">
+                        <button class="show-details-btn">View Details</button>
+                        <div class="product-details">
+                            <h3>Carbon Steel</h3>
+        <p>Experience the versatility of carbon steel with KPL Steels. Our carbon steel products are engineered to meet the demands of diverse industries, providing strength, durability, and cost-effectiveness in every application. From construction to manufacturing, carbon steel from KPL Steels exceeds expectations.</p>
+        <p>With KPL Steels, you'll benefit from a wide range of carbon steel options tailored to your specific needs. Whether you're building structures, fabricating machinery, or creating intricate designs, our carbon steel delivers unmatched performance and value.</p>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section id="press-releases">
+            <h2>Press Releases</h2>
+            <!-- Add press release content -->
+            <div class="press-release">
+                
+                <img src="news.png" >
+                <img src="news1.png">
+          
+                
+                <b><h>The Economic Times</h></b>
+            
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Details</h2>
+            <!-- Add contact details and social media links -->
+            <div class="contact-details">
+                <p>Location: Al Amin Nagar, K.Pudhur, Madurai, Tamil Nadu 625007, India</p>
+                <p>Email: kplsteel@gmail.com</p>
+                <p>Phone: +123 456 7890</p>
+                <div class="social-icons">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-whatsapp'></i></a>
+                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                    <!-- Add more social media links/icons as needed -->
+                </div>
+                <marquee behavior="scroll" direction="left">
+                    KPL Steels Pvt Limited
+                </marquee>
+            </div>
+        </section>
+        
+        
+        
+        
+        <section id="location">
+        <h2>Our Location</h2>
+        <p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15718.349725600221!2d78.155383!3d9.968242!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c67d6e792caf%3A0xe27a09ce92ec2921!2sN%204th%20St%2C%20Al%20Amin%20Nagar%2C%20K.Pudhur%2C%20Madurai%2C%20Tamil%20Nadu%20625007%2C%20India!5e0!3m2!1sen!2sus!4v1707020188481!5m2!1sen!2sus" width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </p>
+    </section>
+
+        <!-- Add this section for submitting reviews in user dashboard -->
+
+
+<section>
+    <h2>Rate Your Experience</h2>
+    
+        <div class="circle-rating">
+            <input type="radio" id="rating1" name="rating" value="5">
+            <label for="rating1"></label>
+            <input type="radio" id="rating2" name="rating" value="4">
+            <label for="rating2"></label>
+            <input type="radio" id="rating3" name="rating" value="3">
+            <label for="rating3"></label>
+            <input type="radio" id="rating4" name="rating" value="2">
+            <label for="rating4"></label>
+            <input type="radio" id="rating5" name="rating" value="1">
+            <label for="rating5"></label>
+        </div>
+    <div class="message" id="message"></div>
+</section>
+
+<section id="submit-review">
+    <h2>Submit a Review</h2>
+    <textarea id="reviewText" placeholder="Write your review"></textarea>
+    <button onclick="submitReview()">Submit Review</button>
+</section>
+
+
+<div id="jobPopup" class="popup">
+    <div class="popup-content" id="jobPopupContent">
+        <span class="close" onclick="closeJobPopup()">&times;</span>
+        <div class="job-list"></div>
+    </div>
+</div>
+
+<section id="jobOpportunity">
+    <h2>View Job Opportunities</h2>
+    <button id="viewJobsButton">View Opportunities</button>
+</section>
+
+<div id="resumeUploadPopup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closeResumeUploadPopup()">&times;</span>
+        <form id="resumeUploadForm">
+            <input type="file" id="resumeFile" accept=".pdf" required>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+</div>
+
+
+
+</main>
+
+    <footer>
+        <p>&copy; 2024 KPL Steel Pvt Ltd. All rights reserved.</p>
+    </footer>
+
+    <script>
+       
+
+        
+
+        // Simulate a loading delay (5 seconds in this example)
+         
+         document.addEventListener("DOMContentLoaded", function() {
+        // Get all the shortcut items
+        const shortcutItems = document.querySelectorAll(".shortcut-item");
+
+        // Add click event listener to each shortcut item
+        shortcutItems.forEach(function(item) {
+            item.addEventListener("click", function(event) {
+                event.preventDefault(); // Prevent default link behavior
+
+                // Get the href attribute of the clicked shortcut item
+                const href = item.getAttribute("href");
+
+                // Check if href is not empty
+                if (href && href !== "#") {
+                    // Redirect to the specified href
+                    window.location.href = href;
+                }
+            });
+        });
+    });
+
+        function toggleTextToSpeech() {
+    var textToSpeechStatus = document.getElementById("textToSpeechStatus");
+    if (textToSpeechStatus.textContent === "Off") {
+        textToSpeechStatus.textContent = "On";
+        enableTextToSpeech();
+    } else {
+        textToSpeechStatus.textContent = "Off";
+        disableTextToSpeech();
+    }
+}
+
+function enableTextToSpeech() {
+    // Replace the textContent with your website's content
+    const textToRead = document.body.textContent;
+    
+    // Use text-to-speech API to read the text aloud
+    const speechSynthesisUtterance = new SpeechSynthesisUtterance(textToRead);
+    speechSynthesis.speak(speechSynthesisUtterance);
+}
+
+function disableTextToSpeech() {
+    // Cancel any ongoing speech
+    speechSynthesis.cancel();
+}
+
+         function toggleSettingsMenu() {
+            var settingsMenu = document.getElementById("settingsMenu");
+            if (settingsMenu.style.display === "none") {
+                settingsMenu.style.display = "block";
+            } else {
+                settingsMenu.style.display = "none";
+            }
+        }
+
+        // Function to toggle audio impairment
+        function toggleAudioImpairment() {
+            var audioStatus = document.getElementById("audioStatus");
+            if (audioStatus.textContent === "Off") {
+                audioStatus.textContent = "On";
+                // Add your logic to enable audio impairment
+            } else {
+                audioStatus.textContent = "Off";
+                // Add your logic to disable audio impairment
+            }
+        }
+
+        // Function to toggle visual impairment
+        function toggleVisualImpairment() {
+            var visualStatus = document.getElementById("visualStatus");
+            if (visualStatus.textContent === "Off") {
+                visualStatus.textContent = "On";
+                var body = document.body;
+    body.classList.toggle('visual-impaired');
+                // Add your logic to enable visual impairment
+            } else {
+                visualStatus.textContent = "Off";
+                // Add your logic to disable visual impairment
+            }
+        }
+
+        // Function to toggle mouse trail
+       // Function to toggle mouse trail
+var mouseTrailEnabled = false;
+function toggleMouseTrail() {
+    mouseTrailEnabled = !mouseTrailEnabled;
+    if (!mouseTrailEnabled) {
+        // Remove existing red dot elements
+        var redDots = document.querySelectorAll(".mouse-trail");
+        redDots.forEach(function(dot) {
+            dot.parentNode.removeChild(dot);
+        });
+
+        // Update status text
+        var mouseTrailStatus = document.getElementById("mouseTrailStatus");
+        if (mouseTrailStatus) {
+            mouseTrailStatus.textContent = "Off";
+        }
+    } else {
+        // Update status text
+        var mouseTrailStatus = document.getElementById("mouseTrailStatus");
+        if (mouseTrailStatus) {
+            mouseTrailStatus.textContent = "On";
+        }
+    }
+}
+
+        // Function to update mouse trail position
+        document.addEventListener("mousemove", function(event) {
+            if (mouseTrailEnabled) {
+                var trails = document.querySelectorAll(".mouse-trail");
+                trails.forEach(function(trail, index) {
+                    if (index === 0) {
+                        trail.style.left = (event.clientX - 5) + "px";
+                        trail.style.top = (event.clientY - 5) + "px";
+                    } else {
+                        var previousTrail = trails[index - 1];
+                        var rect = previousTrail.getBoundingClientRect();
+                        trail.style.left = (rect.left + (rect.width / 2) - 5) + "px";
+                        trail.style.top = (rect.top + (rect.height / 2) - 5) + "px";
+                    }
+                });
+            }
+        });
+     document.addEventListener("DOMContentLoaded", function () {
+            const showDetailsBtns = document.querySelectorAll('.show-details-btn');
+            showDetailsBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productDetails = this.parentElement.querySelector('.product-details');
+                    productDetails.classList.toggle('show');
+                    this.textContent = productDetails.classList.contains('show') ? 'Hide Details' : 'View Details';
+                });
+            });
+        });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+    const toggleButton = document.getElementById('toggle-table');
+    const table = document.getElementById('founder-table');
+
+    toggleButton.addEventListener('click', function () {
+        if (table.style.display === 'none' || !table.style.display) {
+            table.style.display = 'table';
+            toggleButton.textContent = 'Hide Table';
+        } else {
+            table.style.display = 'none';
+            toggleButton.textContent = 'Show Table';
+        }
+    });
+});
+
+       document.addEventListener("DOMContentLoaded", function () {
+    // Get the founder link element
+    const founderLink = document.getElementById('founder-link');
+
+    // Add click event listener to toggle visibility of the table
+    founderLink.addEventListener('click', function (event) {
+        // Prevent the default anchor behavior (i.e., navigating to the href)
+        event.preventDefault();
+
+        // Toggle visibility of the table by toggling the 'expanded' class
+        this.classList.toggle('expanded');
+    });
+});
+function submitReview() {
+    const reviewText = document.getElementById('reviewText').value;
+
+    fetch('http://localhost:3000/api/reviews', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: reviewText }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Review submitted successfully:', data);
+        alert('Review submitted successfully!');
+    })
+    .catch(error => {
+        console.error('Error submitting review:', error);
+        alert('Error submitting review!');
+    });
+}
+
+
+      
+
+
+        function displayImportExportGraph() {
+        // Example: Fetch import/export data (replace with actual data fetching logic)
+        const importExportData = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [{
+                label: 'Export Data',
+                data: [65, 59, 80, 81, 56, 55, 40],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                fill: false,
+            }, {
+                label: 'Import Data',
+                data: [28, 48, 40, 19, 86, 27, 90],
+                borderColor: 'rgba(255, 99, 132, 1)',
+                fill: false,
+            }]
+        };
+
+        // Example: Display the graph in a modal
+        const modalContent = document.createElement('div');
+        modalContent.classList.add('modal-content');
+
+        const closeBtn = document.createElement('span');
+        closeBtn.classList.add('close');
+        closeBtn.innerHTML = '&times;';
+        closeBtn.onclick = function () {
+            modal.style.display = 'none';
+        };
+
+        modalContent.appendChild(closeBtn);
+
+        const canvas = document.createElement('canvas');
+        canvas.id = 'importExportChart';
+        canvas.width = 1300;
+        canvas.height = 400;
+        modalContent.appendChild(canvas);
+
+        const modal = document.getElementById('importExportGraphModal');
+        modal.innerHTML = ''; // Clear previous content
+        modal.appendChild(modalContent);
+
+        modal.style.display = 'block';
+
+        // Example: Render the line chart using Chart.js
+        const ctx = canvas.getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: importExportData,
+            options: {
+                responsive:false,
+                maintainAspectRatio:false,
+            }
+        });
+    }
+    
+
+
+document.addEventListener("DOMContentLoaded", function () {
+        const navLinks = document.querySelectorAll("nav a");
+        navLinks.forEach(function (link) {
+            link.addEventListener("click", function (event) {
+                navLinks.forEach(function (navLink) {
+                    navLink.classList.remove("neon");
+                });
+                link.classList.add("neon");
+            });
+        });
+    });
+    function postComment() {
+            const comment = document.getElementById('comment').value;
+            const rating = document.querySelector('input[name="rating"]:checked');
+
+            // Perform validation
+            if (!rating) {
+                alert('Please select a rating.');
+                return;
+            }
+
+            const ratingValue = rating.value;
+
+            // Here, you can send the comment and rating to your backend or perform any other action
+            console.log(`Comment: ${comment}`);
+            console.log(`Rating: ${ratingValue}`);
+            // Example: Send data to server using fetch API
+
+            // Reset form
+            document.getElementById('comment').value = '';
+            document.querySelectorAll('input[name="rating"]').forEach(radio => {
+                radio.checked = false;
+            });
+
+            // You can also update the UI to reflect the posted comment and rating if needed
+        }
+        const circles = Array.from(document.querySelectorAll('.circle-rating input[type="radio"]'));
+
+circles.forEach(circle => {
+    circle.addEventListener('click', () => {
+        const rating = circle.value;
+        let message = '';
+
+        switch (rating) {
+            case '1':
+                message = 'Very Bad Experience';
+                break;
+            case '2':
+                message = 'Bad Experience';
+                break;
+            case '3':
+                message = 'Average Experience';
+                break;
+            case '4':
+                message = 'Good Experience';
+                break;
+            case '5':
+                message = 'Excellent Experience';
+                break;
+            default:
+                message = '';
+                break;
+        }
+
+        document.getElementById('message').textContent = message;
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const viewJobsButton = document.getElementById('viewJobsButton');
+
+    viewJobsButton.addEventListener('click', function() {
+        fetchJobOpportunities();
+    });
+});
+
+function fetchJobOpportunities() {
+    const jobPopupContent = document.querySelector('.job-list');
+
+    fetch('http://localhost:3000/api/jobs') // Endpoint to fetch all job opportunities
+        .then(response => response.json())
+        .then(jobs => {
+            jobPopupContent.innerHTML = ''; // Clear previous job list
+
+            jobs.forEach(job => {
+                const jobItem = document.createElement('div');
+                jobItem.innerHTML = `
+                    <h3>${job.title}</h3>
+                    <p>${job.description}</p>
+                    <button onclick="acceptJob('${job.title}')">Accept</button>
+                    <button onclick="rejectJob('${job.title}')">Reject</button>
+                `;
+                jobPopupContent.appendChild(jobItem);
+            });
+
+            showJobPopup(); // Show the popup with fetched opportunities
+        })
+        .catch(error => {
+            console.error('Error fetching jobs:', error);
+        });
+}
+
+function showJobPopup() {
+    const jobPopup = document.getElementById('jobPopup');
+    jobPopup.style.display = 'block';
+}
+
+function closeJobPopup() {
+    const jobPopup = document.getElementById('jobPopup');
+    jobPopup.style.display = 'none';
+}
+
+function acceptJob(title) {
+    // Show the resume upload popup
+    showResumeUploadPopup();
+    // You can handle the accepted job here, for example, send the job title to the server
+    console.log('Accepted job:', title);
+}
+
+function rejectJob(title) {
+    // Display a message indicating that the job has been rejected
+    displayMessage('Job rejected: ' + title);
+    // Close the job popup
+    closeJobPopup();
+}
+
+function showResumeUploadPopup() {
+    const resumeUploadPopup = document.getElementById('resumeUploadPopup');
+    resumeUploadPopup.style.display = 'block';
+}
+
+function closeResumeUploadPopup() {
+    const resumeUploadPopup = document.getElementById('resumeUploadPopup');
+    resumeUploadPopup.style.display = 'none';
+}
+
+function displayMessage(message) {
+    alert(message);
+}
+
+// Function to handle resume file upload
+function uploadResume() {
+    const fileInput = document.getElementById('resumeFile');
+    const file = fileInput.files[0];
+    const formData = new FormData();
+    formData.append('resume', file);
+
+    fetch('http://localhost:3000/api/uploadResume', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Handle response from server if needed
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Error uploading resume:', error);
+    });
+}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #b8e0f9, #004080); /* Gradient background from ice blue to dark blue */
+            color: #333; /* Text color */
+        }
+
+        h2 {
+            color: #004080; /* Dark blue */
+        }
+
+        /* Navbar styles */
+        header {
+            background-color: rgba(0, 64, 128, 0.8); /* Add a transparent blue background */
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 10px; /* Apply border-radius for rounded corners */
+            box-shadow: 0 0 10px rgba(0, 64, 128, 0.5); /* Add a shadow effect */
+        }
+
+        .logo img {
+            width: 100px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            margin: 0 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s ease;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            color: #ffd100; /* Yellow on hover */
+            background-color: rgba(255, 255, 255, 0.2); /* Add hovering effect */
+        }
+
+        /* Section styles */
+        main {
+            padding: 2em;
+            text-align: center;
+        }
+
+        section {
+            margin-bottom: 2em;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.8); /* Add a transparent white background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
+            transition: transform 0.3s ease; /* Add transition effect on hover */
+        }
+
+        section:hover {
+            transform: translateY(-5px); /* Move section up on hover */
+        }
+
+        textarea {
+            width: 100%;
+            padding: 0.5em;
+            margin-bottom: 1em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #004080; /* Dark blue */
+            color: #fff;
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #002040; /* Darker blue on hover */
+        }
+
+        footer {
+            background: linear-gradient(to bottom, #004080, #b8e0f9); /* Gradient background from dark blue to ice blue */
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .founder {
+    width: 70px; /* Adjust width as needed */
+    height: 120px; /* Adjust height as needed */
+    border-radius: 100%; /* Makes the image circular */
+    overflow: hidden; /* Hides any part of the image outside the circular shape */
+    margin-left: auto; /* Pushes the circular image to the rightmost corner */
+}
+
+.founder img {
+    width: 100%; /* Make the image fill the circular container */
+    height: 100%; /* Make the image fill the circular container */
+    object-fit: cover; /* Ensures the image covers the circular area */
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+    align-items: center; /* Vertically center items */
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin: 0 10px; /* Adjust margin as needed */
+}
+
+        
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.jpg" alt="Company Logo">
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="#employment-opportunities">Employment Opportunities</a></li>
+                <li><a href="#import-export-details">Import/Export Details</a></li>
+                <li><a href="#employee-details">Employee Details</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li>
+                    <div class="founder">
+                        <img src="founder.jpg" alt="Founder Image">
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="employment-opportunities">
+            <h2>Employment Opportunities</h2>
+            <form id="jobForm">
+                <input type="text" id="jobTitle" placeholder="Job Title" required>
+                <textarea id="jobDescription" placeholder="Job Description" required></textarea>
+                <button type="submit">Post Job</button>
+            </form>
+        </section>
+
+        
+
+        <section id="employee-details">
+            <h2>Employee Details</h2>
+            <form id="employeeForm">
+                <input type="text" id="employeeName" placeholder="Employee Name" required>
+                <input type="text" id="employeeRole" placeholder="Employee Role" required>
+                <button type="submit">Add Employee</button>
+            </form>
+
+            <div id="employeeList">
+                <!-- Employee details will be displayed here -->
+            </div>
+        </section>
+
+        <section id="reviews">
+            <h2>Reviews</h2>
+            <button onclick="displayReviews()">Display Reviews</button>
+            <div id="reviewList"></div> <!-- Display reviews here -->
+        </section>
+    </main>
+    
+    
+<section id="demandPredictionSection">
+    <h1>Demand Prediction</h1>
+    <label for="basePrice">Base Price:</label>
+    <input type="number" id="basePrice" name="basePrice">
+    <label for="totalPrice">Total Price:</label>
+    <input type="number" id="totalPrice" name="totalPrice">
+    <label for="unitsSold">Units Sold:</label>
+    <input type="number" id="unitsSold" name="unitsSold">
+    <button id="predictButton">Predict Demand</button>
+</section>
+
+
+<!-- Modal -->
+<div id="predictionModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Prediction Result</h2>
+        <p id="predictionValue"></p>
+    </div>
+</div>
+
+<!-- Add this section after the existing sections -->
+<section id="uploadedResumes">
+    <h2>Uploaded Resumes</h2>
+    <button id="viewUploadedResumesButton">View Uploaded Resumes</button>
+    <div id="resumeList"></div>
+</section>
+<section id="update-password">
+    <h2>Update Admin Password</h2>
+    <form id="passwordForm">
+        <input type="password" id="currentPassword" placeholder="Current Password" required>
+        <input type="password" id="newPassword" placeholder="New Password" required>
+        <button type="submit">Update Password</button>
+    </form>
+</section>
+
+<!-- Add this modal after the existing modal -->
+<div id="passwordModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="passwordMessage"></p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <footer>
+        <p>&copy; 2024 KPL Steel Pvt Ltd. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // admindashboard.js
+
+       // Function to display demand prediction in a modal
+
+// Function to handle form submission for posting job opportunities
+document.addEventListener('DOMContentLoaded', function() {
+    const jobForm = document.getElementById('jobForm');
+
+    jobForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const title = document.getElementById('jobTitle').value;
+        const description = document.getElementById('jobDescription').value;
+
+        fetch('http://localhost:3000/api/jobs', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ title, description }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Job posted successfully:', data);
+            jobForm.reset(); // Clear the form fields after successful submission
+        })
+        .catch(error => {
+            console.error('Error posting job:', error);
+        });
+    });
+});
+
+
+
+
+        function displayStockDetails() {
+            // Add your code to fetch and display import/export details from the server
+            console.log('Displaying stock details...');
+            // You may want to fetch and display stock details here
+            const stockDetailsContainer = document.getElementById('stockDetails');
+            stockDetailsContainer.innerHTML = '<p>Stock details will be displayed here...</p>';
+        }
+        function displayEmployeeDetails() {
+            fetch('/api/employees')
+                .then(response => response.json())
+                .then(employees => {
+                    const employeeListContainer = document.getElementById('employeeList');
+                    employeeListContainer.innerHTML = '';
+
+                    employees.forEach(employee => {
+                        const employeeItem = document.createElement('div');
+                        employeeItem.innerHTML = `<p>Name: ${employee.name}, Role: ${employee.role}</p>`;
+                        employeeListContainer.appendChild(employeeItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching employee details:', error);
+                });
+        }
+
+        // Call the function to display employee details when the page loads
+        displayEmployeeDetails();
+
+        // Function to handle form submission for adding a new employee
+        document.getElementById('employeeForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const name = document.getElementById('employeeName').value;
+            const role = document.getElementById('employeeRole').value;
+
+            fetch('/api/employees', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name, role })
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Employee added successfully');
+                    // Refresh employee list after adding a new employee
+                    displayEmployeeDetails();
+                } else {
+                    console.error('Failed to add employee');
+                    // Optionally, handle error cases
+                }
+            })
+            .catch(error => console.error('Error adding employee:', error));
+        });
+
+       
+        function displayReviews() {
+    console.log('Fetching and displaying reviews...');
+
+    fetch('http://localhost:3000/api/reviews')
+    .then(response => response.json())
+    .then(reviews => {
+        const reviewsListContainer = document.getElementById('reviewList');
+        reviewsListContainer.innerHTML = '';
+
+        reviews.forEach(review => {
+            const reviewItem = document.createElement('p');
+            reviewItem.textContent = review.text;
+            reviewsListContainer.appendChild(reviewItem);
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching reviews:', error);
+    });
+}
+const displayReviewsButton = document.getElementById('displayReviewsButton');
+displayReviewsButton.addEventListener('click', displayReviews);
+
+
+// Function to handle demand prediction
+document.getElementById('predictButton').addEventListener('click', function() {
+    const basePrice = parseFloat(document.getElementById('basePrice').value);
+    const totalPrice = parseFloat(document.getElementById('totalPrice').value);
+    const unitsSold = parseFloat(document.getElementById('unitsSold').value);
+
+    fetch('http://localhost:3000/api/demandPrediction', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ basePrice, totalPrice, unitsSold })
+    })
+    .then(response => response.json())
+    .then(data => {
+        const predictionValue = document.getElementById('predictionValue');
+
+        if (data.prediction) {
+            predictionValue.textContent = `Predicted demand: ${data.prediction}`;
+        } else {
+            predictionValue.textContent = 'Failed to predict demand.';
+        }
+
+        // Display the prediction modal
+        const modal = document.getElementById('predictionModal');
+        modal.style.display = 'block';
+    })
+    .catch(error => {
+        console.error('Error predicting demand:', error);
+        const predictionValue = document.getElementById('predictionValue');
+        predictionValue.textContent = 'Failed to predict demand.';
+
+        // Display the prediction modal even if there's an error
+        const modal = document.getElementById('predictionModal');
+        modal.style.display = 'block';
+    });
+});
+// Function to fetch and display uploaded files
+// Function to fetch and display uploaded resumes
+function viewUploadedResumes() {
+    fetch('http://localhost:3000/api/getUploadedResumes')
+        .then(response => response.json())
+        .then(data => {
+            const fileListContainer = document.getElementById('resumeList');
+            fileListContainer.innerHTML = '';
+
+            if (data.resumes && data.resumes.length > 0) {
+                data.resumes.forEach(resume => {
+                    const resumeItem = document.createElement('div');
+                    const resumeFileName = resume.filename;
+                    resumeItem.innerHTML = `
+                        <p>${resumeFileName}</p>
+                        <button onclick="viewResume('${resumeFileName}')">View Resume</button>
+                    `;
+                    fileListContainer.appendChild(resumeItem);
+                });
+            } else {
+                const noResumesMessage = document.createElement('p');
+                noResumesMessage.textContent = 'No resumes uploaded yet.';
+                fileListContainer.appendChild(noResumesMessage);
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching uploaded resumes:', error);
+        });
+}
+
+// Function to view a specific resume
+function viewResume(filename) {
+    window.open(`http://localhost:3000/api/viewResume?filename=${filename}`, '_blank');
+}
+
+// Event listener for the button to view uploaded resumes
+document.getElementById('viewUploadedResumesButton').addEventListener('click', viewUploadedResumes);
+
+// Function to handle form submission for updating the admin password
+document.getElementById('passwordForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const currentPassword = document.getElementById('currentPassword').value;
+    const newPassword = document.getElementById('newPassword').value;
+
+    fetch('http://localhost:3000/api/credential', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ currentPassword, newPassword })
+    })
+    .then(response => response.json())
+    .then(data => {
+        const passwordMessage = document.getElementById('passwordMessage');
+        if (data.message) {
+            passwordMessage.textContent = data.message;
+            // Optionally, you can close the modal after a successful password update
+            setTimeout(() => {
+                document.getElementById('passwordModal').style.display = 'none';
+            }, 3000);
+        } else {
+            passwordMessage.textContent = data.error;
+        }
+    })
+    .catch(error => console.error('Error updating password:', error));
+});
+
+// Display password update modal when clicking on the "Update Password" link in the navbar
+document.getElementById('updatePasswordLink').addEventListener('click', function() {
+    document.getElementById('passwordModal').style.display = 'block';
+});
+
+
+</script>
+</body>
+</html>

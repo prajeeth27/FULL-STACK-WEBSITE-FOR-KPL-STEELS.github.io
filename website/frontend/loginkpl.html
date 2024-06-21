@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom right, #e0eafc, #cfdef3); /* Light gradient background */
+        min-height: 100vh;
+        position: relative;
+    }
+
+    header {
+        background: linear-gradient(to right, #82cfff, #3885f5); /* Gradient for header */
+        color: white;
+        padding: 0.8em;
+        text-align: center;
+        font-size: 1.5em;
+        transition: background 0.3s ease;
+        cursor: pointer;
+    }
+
+    header:hover {
+        background: linear-gradient(to right, #3885f5, #0b5483); /* Darker header gradient on hover */
+    }
+
+    main {
+        padding: 2em;
+        text-align: center;
+    }
+
+    section {
+        margin-bottom: 2em;
+    }
+
+    h2, h3 {
+        color: #333;
+        transition: color 0.3s ease;
+        cursor: pointer;
+    }
+
+    h2:hover, h3:hover {
+        color: #82cfff;
+    }
+
+    .login-container {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .login-form {
+        background-color: #f9f9f9; /* Light background for forms */
+        padding: 1em;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 0.5em;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        padding: 0.5em;
+        margin-bottom: 1em;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input[type="email"]:hover,
+    input[type="password"]:hover {
+        border-color: #82cfff;
+        box-shadow: 0 0 5px rgba(51, 136, 255, 0.5);
+    }
+
+    button {
+        background-color: #3885f5;
+        color: white;
+        padding: 0.5em 1em;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #1e74d7;
+    }
+
+    footer {
+        background: linear-gradient(to right, #82cfff, #3885f5); /* Darker gradient for footer */
+        color: white;
+        padding: 0.5em;
+        text-align: center;
+        position:relative;
+        bottom: 0;
+        width: 100%;
+        height: 50px;
+    }
+</style>
+<body>
+    <header>
+        <h1>Welcome to KPL Steels</h1>
+    </header>
+
+    <main>
+        <section class="login-container user-login">
+            <h2>User Login</h2>
+            <div class="login-form">
+                <form id="userLoginForm">
+                    <label for="userEmail">Email:</label>
+                    <input type="email" id="userEmail" name="userEmail" required>
+
+                    <label for="userPassword">Password:</label>
+                    <input type="password" id="userPassword" name="userPassword" required>
+
+                    <button type="button" onclick="userLogin()">Login</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="login-container admin-login">
+            <h2>Admin Login</h2>
+            <div class="login-form">
+                <form id="adminLoginForm">
+                    <label for="adminEmail">Email:</label>
+                    <input type="email" id="adminEmail" name="adminEmail" required>
+
+                    <label for="adminPassword">Password:</label>
+                    <input type="password" id="adminPassword" name="adminPassword" required>
+
+                    <button type="button" onclick="adminLogin()">Login</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 KPL Steel Pvt Ltd. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function userLogin() {
+            // Replace the following lines with your actual email and password
+            const actualUserEmail = '21z330@psgtech.ac.in';
+            const actualUserPassword = 'userpass';
+
+            // Get values entered by the user
+            const enteredUserEmail = document.getElementById('userEmail').value;
+            const enteredUserPassword = document.getElementById('userPassword').value;
+
+            // Check if entered values match the actual values
+            if (
+                enteredUserEmail === actualUserEmail &&
+                enteredUserPassword === actualUserPassword
+            ) {
+                // Assuming login is successful, redirect to user dashboard
+                window.location.href = "loading.html";
+            } else {
+                alert('Invalid user credentials. Please try again.');
+            }
+        }
+
+        function adminLogin() {
+            // Replace the following lines with your actual email and password
+            const actualAdminEmail = '21z330@psgtech.ac.in';
+            const actualAdminPassword = 'adminpass';
+
+            // Get values entered by the user
+            const enteredAdminEmail = document.getElementById('adminEmail').value;
+            const enteredAdminPassword = document.getElementById('adminPassword').value;
+
+            // Check if entered values match the actual values
+            if (
+                enteredAdminEmail === actualAdminEmail &&
+                enteredAdminPassword === actualAdminPassword
+            ) {
+                // Assuming login is successful, redirect to admin dashboard
+                window.location.href = 'addash.html';
+            } else {
+                alert('Invalid admin credentials. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>

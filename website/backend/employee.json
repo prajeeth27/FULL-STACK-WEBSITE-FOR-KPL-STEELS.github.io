@@ -1,0 +1,13 @@
+[
+  {
+    "name": "John Doe",
+    "role": "Engineer",
+    "phone": "123-456-7890"
+  },
+  {
+    "name": "Jane Smith",
+    "role": "Manager",
+    "phone": "987-654-3210"
+  }
+  
+]

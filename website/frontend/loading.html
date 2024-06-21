@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading Animation</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom right, #82cfff, #3885f5); /* Gradient descent background */
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .animation-container {
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .text {
+    font-size: 24px;
+    animation: fallingText 3s linear infinite;
+    transition: color 0.3s ease; /* Hover effect */
+  }
+
+  .text:hover {
+    color: #1e74d7; /* Darker blue color on hover */
+  }
+
+  @keyframes fallingText {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+
+  /* Decorative elements */
+  .left-decoration,
+  .right-decoration {
+    position: absolute;
+    height: 100%;
+    width: 20px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .left-decoration {
+    left: 0;
+  }
+
+  .right-decoration {
+    right: 0;
+  }
+
+  /* Animation for decorative elements */
+  @keyframes sideAnimation {
+    0% {
+      transform: translateY(-10px);
+    }
+    50% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .left-decoration {
+    animation: sideAnimation 5s infinite linear alternate-reverse;
+  }
+
+  .right-decoration {
+    animation: sideAnimation 5s infinite linear alternate;
+  }
+</style>
+</head>
+<body>
+  <div class="left-decoration"></div>
+  <div class="right-decoration"></div>
+  <div class="animation-container">
+    <div class="text">KPL Steels</div>
+    <div class="text">Quality Steel Products</div>
+    <div class="text">Delivering Excellence</div>
+  </div>
+  <script>
+  setTimeout(function() {
+    window.location.href = "kpl.html"; // Redirect to main page
+  }, 4000); // 4000 milliseconds = 4 seconds
+</script>
+</body>
+</html>

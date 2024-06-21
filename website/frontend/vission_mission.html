@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPL Steels - Vision and Mission</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+        header {
+        background: linear-gradient(to right, #b3ecff, #004080); /* Gradient background from ice blue to dark blue */
+        color: #fff; /* Text color */
+        padding: 1em;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 2px solid transparent; /* Add a transparent border */
+        border-radius: 10px; /* Apply border-radius for rounded corners */
+        transition: border-color 0.3s ease; /* Add a transition effect on border color change */
+        box-shadow: 0 0 10px rgba(0, 64, 128, 0.5); /* Add a shadow effect */
+    }
+
+
+        
+        header h1 {
+            margin-bottom: 0.5rem;
+        }
+
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 1rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav ul li.active a {
+            font-weight: bold;
+        }
+
+        section.vision-mission {
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .column {
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            box-sizing: border-box;
+            height: 450px;
+            width: 250px;
+            overflow-y: auto; /* Enable vertical scrolling */
+            transition: transform 0.2s;
+        }
+
+        .column:hover,
+        .column:focus {
+            transform: scale(1.05);
+        }
+
+        h2 {
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: dodgerblue;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>KPL Steels</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="founder.html">Founder</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="press.html">Press Release</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="vision-mission">
+        <div>
+            <div class="container">
+                <div class="column">
+                    <h2>Vision</h2>
+                    <p>Our vision is to be the premier provider of high-quality steel products worldwide, recognized for our commitment to excellence and customer satisfaction.</p>
+                    <p>We aim to achieve sustainable growth and innovation while upholding the highest standards of integrity and environmental responsibility.</p>
+                    <p>We aspire to lead the steel industry by embracing advanced technology and fostering a culture of continuous improvement.</p>
+                </div>
+                <div class="column">
+                    <h2>Mission</h2>
+                    <p>Our mission is to consistently deliver superior steel solutions to our customers, meeting their diverse needs and exceeding their expectations.</p>
+                    <p>We are dedicated to building long-term partnerships with our clients, suppliers, and stakeholders based on trust, reliability, and mutual respect.</p>
+                    <p>We strive to empower our employees to reach their full potential, fostering a dynamic and inclusive workplace where innovation thrives.</p>
+                </div>
+                <div class="column">
+                    <h2>Values</h2>
+                    <p>Integrity: We conduct our business with honesty, transparency, and ethical principles.</p>
+                    <p>Quality: We are committed to delivering products and services of the highest standards, ensuring customer satisfaction.</p>
+                    <p>Innovation: We embrace creativity and innovation to drive continuous improvement and stay ahead in the industry.</p>
+                    <p>Teamwork: We collaborate effectively, valuing the contributions of every individual to achieve common goals.</p>
+                    <p>Responsibility: We are dedicated to environmental stewardship, social responsibility, and sustainable business practices.</p>
+                    <p>Customer Focus: We prioritize customer needs, providing personalized solutions and exceptional service.</p>
+                    <p>Excellence: We strive for excellence in everything we do, setting benchmarks for quality and performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 KPL Steels. All rights reserved.</p>
+    </footer>
+</body>
+</html>
